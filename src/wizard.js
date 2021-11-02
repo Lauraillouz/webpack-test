@@ -1,1 +1,1 @@
-export const wizard = "demo";
+export const wizard = "I'm a wizard";

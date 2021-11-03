@@ -7,19 +7,8 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("/* const getComponent = () => {\n    const element = document.createElement(\"div\");\n\n    // dynamic importing to separate a chunck\n    return import(\"lodash\") // returns a Promise\n        .then(({ default: _ }) => {\n            const element = document.createElement(\"div\");\n\n            element.innerHTML = _.join([\"Hello\", \"webpack\"], \" \");\n\n            return element;\n        })\n        .catch((err) => \"An error occured while loadig the component\");\n}\n\ngetComponent().then((component) => {\n    document.body.appendChild(component);\n  }); */\n\n  \n  \n// Simplified code using async/await since import() returns a promise :\n\nconst getComponent = async () => {\n    const element = document.createElement(\"div\");\n    const { default: _ } = await __webpack_require__.e(/*! import() */ \"vendors-node_modules_lodash_lodash_js\").then(__webpack_require__.t.bind(__webpack_require__, /*! lodash */ \"./node_modules/lodash/lodash.js\", 23));\n\n    element.innerHTML = _.join([\"Hello\", \"webpack\"], \" \");\n\n    return element;\n}\n\ngetComponent().then((component) => {\n    document.body.appendChild(component);\n  });\n\n//# sourceURL=webpack://dynamic-imports/./src/index.js?");
-
-/***/ })
-
-/******/ 	});
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({});
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -52,6 +41,38 @@ eval("/* const getComponent = () => {\n    const element = document.createElemen
 /******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/create fake namespace object */
 /******/ 	(() => {
 /******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
@@ -112,7 +133,7 @@ eval("/* const getComponent = () => {\n    const element = document.createElemen
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".bundle.js";
+/******/ 			return "" + chunkId + "." + "6816a403706a6c136cba" + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -227,7 +248,7 @@ eval("/* const getComponent = () => {\n    const element = document.createElemen
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"index": 0
+/******/ 			"runtime": 0
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.j = (chunkId, promises) => {
@@ -239,7 +260,7 @@ eval("/* const getComponent = () => {\n    const element = document.createElemen
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(true) { // all chunks have JS
+/******/ 						if("runtime" != chunkId) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);
@@ -277,7 +298,7 @@ eval("/* const getComponent = () => {\n    const element = document.createElemen
 /******/ 		
 /******/ 		// no HMR manifest
 /******/ 		
-/******/ 		// no on chunks loaded
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
 /******/ 		
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
@@ -301,7 +322,7 @@ eval("/* const getComponent = () => {\n    const element = document.createElemen
 /******/ 				}
 /******/ 				installedChunks[chunkIds[i]] = 0;
 /******/ 			}
-/******/ 		
+/******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
 /******/ 		var chunkLoadingGlobal = self["webpackChunkdynamic_imports"] = self["webpackChunkdynamic_imports"] || [];
@@ -311,10 +332,6 @@ eval("/* const getComponent = () => {\n    const element = document.createElemen
 /******/ 	
 /************************************************************************/
 /******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
 ;

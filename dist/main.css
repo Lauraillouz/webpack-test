@@ -1,4 +1,33 @@
-:root{--mainBg: mediumpurple}body{background-color:#9370db;background-color:var(--mainBg);color:#ffe4b5}.container{padding:1rem;display:-webkit-box;display:-ms-flexbox;display:flex;background:-webkit-gradient(linear, left bottom, left top, from(lavender), to(white));background:linear-gradient(to top, lavender, white)}.container h1{font-size:68px;text-align:center}
-p{font-size:18px}
+/*!********************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/css/styles.scss ***!
+  \********************************************************************************************************************************************************/
+:root {
+  --mainBg: mediumpurple;
+}
+
+body {
+  background-color: mediumpurple;
+  background-color: var(--mainBg);
+  color: moccasin;
+}
+
+.container {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: -webkit-gradient(linear, left bottom, left top, from(lavender), to(white));
+  background: linear-gradient(to top, lavender, white);
+}
+.container h1 {
+  font-size: 68px;
+  text-align: center;
+}
+/*!*****************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/css/woof.css ***!
+  \*****************************************************************************************************************************************************/
+p {
+  font-size: 18px;
+}
 
 /*# sourceMappingURL=main.css.map*/

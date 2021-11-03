@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const path = require("path");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 // Récupérer directement auprès de l'environnement env le mode
 const mode =
@@ -8,7 +9,14 @@ const mode =
 
 module.exports = {
   // Allows to have all CSS/SASS transpiled in main.css instead of multiple files
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new BundleAnalyzerPlugin({
+      // relates to the STATS option set up in the package.json. Allows to run the bundle analyzer server only in development mode and not when we run build in production (which would be useless)
+      analyzerMode: process.env.STATS || "disabled",
+    }),
+  ],
+  // entry and output not required if using "src/index.js" default
   mode: mode,
   module: {
     rules: [
@@ -40,6 +48,6 @@ module.exports = {
   devtool: "source-map",
   // Run little server to track what's going on from terminal without having to reload navigator page
   devServer: {
-    static: "./dist",
+    static: __dirname + "./dist",
   },
 };

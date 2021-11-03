@@ -1,6 +1,6 @@
+import "./css/styles.scss";
+import "./css/woof.css";
 import getClasses from "./getClasses";
-import "./styles.scss";
-import "./woof.css";
 
 console.log("ran from index.js");
 getClasses();

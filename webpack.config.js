@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const path = require("path");
 
+// Récupérer directement auprès de l'environnement env le mode
 const mode =
   process.env.NODE_ENV === "production" ? "production" : "development";
 
@@ -17,12 +18,21 @@ module.exports = {
         use: {
           // without additionnal settings this will reference .babelrc
           loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
         },
       },
       {
         // The regex for test looks for scss OR css but also sass (which is what is says in the [])
         test: /\.(s[ac]|c)ss/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        include: path.resolve(__dirname, "src"),
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader",
+          "postcss-loader",
+        ],
       },
     ],
   },

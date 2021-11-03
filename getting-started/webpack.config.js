@@ -10,9 +10,20 @@ module.exports = {
   mode: "development",
   /* entry: "./src/index.js", */
   entry: {
-    index: "./src/index.js",
-    /* print: "./src/print.js", */ // useless if we use Hot Module Replacement
+    /* index: "./src/index.js", */
+    // index is to be used with print or another
+    /* print: "./src/print.js", */
+    // useless if we use Hot Module Replacement
+    /* another: "./another-module.js", */
+    // used for code splitting with entry points but for ex lodash will also be imported within ./src/index.js and will be duplicated in both bundles
+    import: "./src/index.js",
+    dependOn: "shared",
   },
+  another: {
+    import: "./src/another-module.js",
+    dependOn: "shared",
+  },
+  shared: "lodash",
   devtool: "inline-source-map", // makes it easier to track down errors and warnings: it maps the compiled code back to the original source code
   devServer: {
     static: "./dist",
